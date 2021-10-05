@@ -1,4 +1,4 @@
-package HW1;
+
 // Make a method that accepts a string and an integer and a char and will return the string with the char
 // replaced at the integer given
 // EX I MAKE BREAD, 2, T
@@ -8,8 +8,24 @@ package HW1;
 // 01234
 public class Replace {
     public String charReplace(String s, int x, char z) {
-        return null;
-        
+        String newString = "";
+        int counter = 0;
+        if (s.charAt(x) != z){
+            while (counter != x){
+                newString = newString + s.charAt(counter);
+                counter ++;
+            }
+            newString = newString + z;
+            counter++;
+            while (newString.length() != s.length()){
+                newString = newString + s.charAt(counter);
+                counter++;
+            }
+            return newString;
+        }
+        else{
+            return s;
+        }        
     }
     
 }

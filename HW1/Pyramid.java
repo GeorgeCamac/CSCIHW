@@ -1,4 +1,4 @@
-package HW1;
+
 /*
 Make the output look like this:
 #
@@ -15,6 +15,14 @@ Hint2: Also notice the method is void meaning you will not be returning anything
 */
 public class Pyramid {
     public static void Output() {
-        
+        System.out.println("#");
+        System.out.println("##");
+        System.out.println("###");
+        System.out.println("####");
+        System.out.println("#####");
+        System.out.println("####");
+        System.out.println("###");
+        System.out.println("##");
+        System.out.println("#");
     }
 }
