@@ -132,8 +132,8 @@ public class Array {
 
 
     public static void main(String[] args) {
-       // Arraysums();
-       // bruteForce("aaa");
+       Arraysums();
+       bruteForce("aaa");
         int [] numbers = new int[]{19,2,3,17,15,18,29,83,24,13};
         sorter(numbers);
     }
