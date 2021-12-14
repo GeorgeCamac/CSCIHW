@@ -1,5 +1,7 @@
-package HW3;
+
 import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class Loops {
 
@@ -7,7 +9,7 @@ public class Loops {
     //If I added default code it is meant to be there
     //and should not be adjusted unless otherwise noted
     //(return statments are usually changed)
-
+    
     //Make a method that will return true if a given 
     //String contains between 1 and 3 'e' chars.
     //Ex.
@@ -17,8 +19,23 @@ public class Loops {
     //eeeeat -> false
 
     public static boolean loopE(String str){
-        return true; // <- this should be changed 
+        boolean echar = false;
+        for(int i = 0; i < 2; i++){
+            if(str.charAt(i) == 'e'){
+                echar = true;
+            }
+        }
+        for(int i = 3; i < str.length(); i++){
+            if (str.charAt(i) == ('e')){
+                echar = false;
+            }
+        }
+        return echar;
+        
     }
+
+ 
+    
 
     //Given a String str and int n return a larger string
     //that is n copies of the original string 
@@ -26,7 +43,11 @@ public class Loops {
     //stringTimes("Code",2) ->"CodeCode"
     //stringTimes("Code",4) ->"CodeCodeCodeCode"
     public static String stringTimes(String str, int n) {
-        return null; // <- this should be changed 
+        String newStr = str;
+        for(int i = 0; i < n - 1; i++){
+            newStr = newStr + " " + str;
+        }
+        return newStr; // <- this should be changed 
     } 
 
     //Create a method Given a string, return the string where all of the "z"
@@ -37,7 +58,14 @@ public class Loops {
     //stringT("nozthaznks") -> "nothanks"
     //stringT("xksiazdjaasldzsajzasdz") -> "xksiadjaasldsajasdz"
     public static String stringZ(String str){
-        return null; // <- this should be changed 
+        String newStr = "" + str.charAt(0);;
+        for(int i = 1; i < str.length() - 1; i++){
+            if(str.charAt(i) != 'z'){
+                newStr = newStr + str.charAt(i);
+            }
+        }
+        newStr = newStr + str.charAt(str.length() - 1);
+        return newStr; // <- this should be changed 
     }
 
     //Create a method that contains a while loop that allows for
@@ -66,11 +94,32 @@ public class Loops {
     // Number: 0
     // TOTAL ENDED --- The total is 27.
     public static void sums(){
+        int input = 1;
+        int sum = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while(input != 0){
+            System.out.println("Please enter a number you would like to add or input 0 to complete it");
+            input = keyboard.nextInt();
+            sum = sum + input;
+            if(input != 0){
+                System.out.println("Current sum:");
+                System.out.println(sum);
+            }
+        }
+        System.out.println("Final sum:");
+        System.out.println(sum);
     }
 
     public static void main(String[] args) {
         // Add code to help test your methods here
+        System.out.println(loopE("gatrcgfc"));
+        System.out.println(loopE("eatrcgfc"));
+        System.out.println(loopE("eeeecgfc"));
 
-    }
-    
+        System.out.println(stringTimes("I am amazing", 10));
+
+        System.out.println(stringZ("zasdsffzsadzsadz"));
+
+        sums();
+}
 }

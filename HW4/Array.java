@@ -1,8 +1,8 @@
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Arrays {
+public class Array {
 
     // CONVERT THE SUMS METHOD FROM HW3 TO ADD EACH VALUE TO AN ARRAY AND THEN OUTPUT THE 
     // ARRAY AND THE TOTAL.
@@ -112,8 +112,6 @@ public class Arrays {
     // Hint 1: a temp Array is a helpful way to store variables for comparing 
     // Hint 2: 2 nested For loops should be all thats needed for the swapping logic
     public static int[] sorter(int[] nums){
-        int [] sortedArray = new int[nums.length];
-        int lowVal = nums[0];
 
         for (int i = 0; i < nums.length; i++){
             for(int j = i + 1; j < nums.length; j++){
@@ -126,7 +124,7 @@ public class Arrays {
             }
         } 
             
-        
+        System.out.println(Arrays.toString(nums));
         return nums;
     }
 
@@ -135,10 +133,9 @@ public class Arrays {
 
     public static void main(String[] args) {
        // Arraysums();
-        bruteForce("aaa");
-        // int [] numbers = new int[]{19,2,3,17,15,18,29,83,24,13};
-        // System.out.println(sorter(numbers));
-        System.out.println("hi");
+       // bruteForce("aaa");
+        int [] numbers = new int[]{19,2,3,17,15,18,29,83,24,13};
+        sorter(numbers);
     }
 
     

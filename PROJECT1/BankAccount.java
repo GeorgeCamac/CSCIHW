@@ -1,6 +1,3 @@
-package PROJECT1;
-
-
 import java.util.Scanner;
 
 public class BankAccount {
@@ -70,7 +67,32 @@ public class BankAccount {
 
         return selection;
     }
+    
+    public void overdraft(BankAccount account, double withdrawAmount){
+        Scanner keyboard = new Scanner(System.in);
+        char permission;
+        double amountOverdraft;
+        if(account.getBalance() - withdrawAmount < 0){
+            System.out.println("If you withdraw this amount you will be charged a $35 overdraft fee is this ok y/n");
+            permission = keyboard.nextLine().charAt(0);
+            if(permission == 'y'){
+                account.withdraw(35);
+                BankAccount.menu();
+            }
+            else if(permission == 'n'){
+                amountOverdraft = -1 * (account.balance - withdrawAmount);
+                System.out.println("You are trying to withdraw $" + amountOverdraft + " to much you may withdraw $" + amountOverdraft + " less to avoid the fee");
+                BankAccount.menu();
+            }
+            else{
+                System.out.println("Wrong input try again");
+                BankAccount.menu();
+            }
+            
+        }
+        
+        
+    }
 }
-
 
 
