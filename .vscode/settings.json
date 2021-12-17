@@ -1,8 +1,10 @@
 {
     "java.project.sourcePaths": [
         "PROJECT1",
+        "HW5",
         "HW4",
         "HW3",
-        "HW5"
+        "PROJECT2",
+        "PROJECT3"
     ]
 }

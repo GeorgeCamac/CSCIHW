@@ -1,5 +1,3 @@
-
-
 public class BankAccountTester {
 
     public static void main(String[] args) {
@@ -20,16 +18,14 @@ public class BankAccountTester {
 
         System.out.println(gregChecking.getBalance());
         
-        double withdrawAmount;
-
-        
-
         gregChecking.deposit(50000);
         gregChecking.calcInterest(gregChecking.getBalance(), 10, 0.40, 12);
 
-        bobChecking.withdraw(10005);
-        bobChecking.overdraft(bobChecking, 10005);
 
+        BankAccount.overdraft(gregChecking, 50000);
+        BankAccount.transfer(bobChecking, gregChecking, 10);
+
+        BankAccount.simpleInterest(10, .01, bobChecking);
     }
     
 }

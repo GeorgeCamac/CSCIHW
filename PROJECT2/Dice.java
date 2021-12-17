@@ -1,7 +1,11 @@
-package PROJECT2;
 
+
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner14;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 // Write a program that will generate a selected amount of Dice and toss them into an array.
 // For example:
@@ -43,7 +47,92 @@ public class Dice {
         int sides = 6;
     }
 
+    public static void roll(int numRolls){
+        Random generator = new Random();
+        int side1 = 0;
+        int side2 = 0;
+        int side3 = 0;
+        int side4 = 0;
+        int side5 = 0;
+        int side6 = 0;
+        int[] diceRolls = new int[numRolls];
+        
+        for(int i = 0; i < numRolls; i++){
+            diceRolls[i] = generator.nextInt(6) + 1;
+        }
+        for (int i = 0; i < numRolls; i++){
+            switch(diceRolls[i]){
+                case 1 : side1 += 1;
+            break;
+                case 2 : side2 += 1;
+            break;
+                case 3 : side3 += 1;
+            break;
+                case 4 : side4 += 1;
+            break;
+                case 5 : side5 += 1;
+            break;
+                case 6 : side6 += 1;
+            break;
+            }
+        }
+        System.out.println(Arrays.toString(diceRolls));
+        System.out.println("1 was rolled " + side1 + " times");
+        System.out.println("2 was rolled " + side2 + " times");
+        System.out.println("3 was rolled " + side3 + " times");
+        System.out.println("4 was rolled " + side4 + " times");
+        System.out.println("5 was rolled " + side5 + " times");
+        System.out.println("6 was rolled " + side6 + " times");
+
+        int lastRoll = 0;
+        int nextRoll = 0;
+        
+        // for(int i = 1; i < numRolls; i++){
+        //     if(lastRoll == diceRolls[i]){
+        //         System.out.print(diceRolls[i] + " ");
+        //     }
+        //     else if (diceRolls[i] == diceRolls[i + 1]){
+        //         System.out.print("(" + diceRolls[i] + " ");
+        //         if (diceRolls[i + 1] != lastRoll){
+        //             System.out.print(")");
+        //         }
+        //     }
+        //     else{
+        //         System.out.print(diceRolls[i] + " ");
+        //         lastRoll = diceRolls[i];
+        //     }
+        // }
+        for(int i = 0; i < numRolls; i++){
+            if(i != numRolls - 1){
+                nextRoll = i + 1;
+            }
+            
+            if(diceRolls[i] == diceRolls[nextRoll] && diceRolls[i] != diceRolls[lastRoll]){
+                System.out.print("(" + diceRolls[i] + " ");
+            }
+            else if(lastRoll == diceRolls[i]){
+                
+                if(diceRolls[i] == nextRoll){
+                    System.out.print( diceRolls[i] + " ");
+                }
+                else{
+                    System.out.print(diceRolls[i] + ") ");
+
+                }
+            }
+            else{
+                System.out.print(diceRolls[i] + " ");
+            }
+            
+            lastRoll = diceRolls[i];
+            
+        }
+        if(diceRolls[diceRolls.length - 2] == diceRolls[diceRolls.length - 1]){
+            System.out.println(")");
+        }
+    }
     public static void main(String[] args) {
         Dice die = new Dice();
+        roll(10);
     }
 }
